@@ -1,4 +1,4 @@
-const routes = [
+const routesConfig = [
   {
     title: '用户信息',
     path: '/user',
@@ -22,4 +22,4 @@ const routes = [
   // },
 ];
 
-export default routes;
+export default routesConfig;

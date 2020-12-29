@@ -1,28 +1,50 @@
-import React, { lazy, Suspense } from 'react';
-import SideBar from '../components/sidebar';
+import React, { Component, lazy, Suspense } from 'react';
+import SideBar from '../components/SideBar';
 import { Layout } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router';
 
+const { Header, Content, Sider, Footer } = Layout;
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {}
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Oops</h1>;
+    }
+    return this.props.children;
+  }
+}
+
 const AsyncLoadedWrapper = (Comp) => {
   return () => {
     return (
-      <Suspense fallback={<p>loading</p>}>
-        <Comp />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<p>loading</p>}>
+          <Comp />
+        </Suspense>
+      </ErrorBoundary>
     );
   };
 };
-
-const { Header, Content, Sider, Footer } = Layout;
 
 const BasicLayout = () => {
   const pathname = useSelector(({ router }) => {
     return router.location.pathname;
   });
 
-  const routeList = useSelector(({ routeList }) => {
-    return routeList;
+  const routes = useSelector(({ routes }) => {
+    return routes;
   });
 
   return (
@@ -44,7 +66,7 @@ const BasicLayout = () => {
             </Sider>
             <Content style={{ minHeight: 1000 }}>
               <Switch>
-                {routeList.map((item) => {
+                {routes.map((item) => {
                   return (
                     <Route
                       key={item.path}

@@ -1,20 +1,10 @@
 import { Button, Form, Input, Checkbox } from 'antd';
-import { push } from 'connected-react-router';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
 const Login = () => {
-  const login = useSelector(({ login }) => {
-    return login;
-  });
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // if (!login.expired) {
-    //   dispatch(push('/user'));
-    // }
-  });
   return (
     <Form
       name="basic"
