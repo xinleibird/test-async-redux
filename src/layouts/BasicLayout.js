@@ -21,24 +21,34 @@ const BasicLayout = () => {
 
   return (
     <>
-      <Layout>
-        <Header></Header>
+      {pathname === '/login' ? (
         <Layout>
-          <Sider>
-            <SideBar />
-          </Sider>
-          <Content style={{ minHeight: 1000 }}>
-            <Switch>
-              {routeList.map((item) => {
-                const Page = pages[item.component];
-                return <Route path={item.path} component={Page} />;
-              })}
-            </Switch>
+          <Header></Header>
+          <Content>
+            <p>login</p>
           </Content>
+          <Footer></Footer>
         </Layout>
+      ) : (
+        <Layout>
+          <Header></Header>
+          <Layout>
+            <Sider>
+              <SideBar />
+            </Sider>
+            <Content style={{ minHeight: 1000 }}>
+              <Switch>
+                {routeList.map((item) => {
+                  const Page = pages[item.component];
+                  return <Route path={item.path} component={Page} />;
+                })}
+              </Switch>
+            </Content>
+          </Layout>
 
-        <Footer>Fotter</Footer>
-      </Layout>
+          <Footer>Fotter</Footer>
+        </Layout>
+      )}
     </>
   );
 };
