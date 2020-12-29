@@ -1,11 +1,14 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import { push } from 'connected-react-router';
 
 const SideBar = () => {
   const sidebarState = useSelector(({ routeList }) => {
     return routeList;
   });
+
+  const dispatch = useDispatch();
 
   const loopSideBar = (arr) => {
     return arr.map((item) => {
@@ -17,7 +20,16 @@ const SideBar = () => {
         );
       }
 
-      return <Menu.Item key={item.path}>{item.title}</Menu.Item>;
+      return (
+        <Menu.Item
+          key={item.path}
+          onClick={() => {
+            dispatch(push('/user'));
+          }}
+        >
+          {item.title}
+        </Menu.Item>
+      );
     });
   };
 
