@@ -4,6 +4,11 @@ const routes = [
     path: '/user',
     component: 'UserInfo',
   },
+  {
+    title: '用户登录',
+    path: '/login',
+    component: 'Login',
+  },
   // {
   //   title: '目录1',
   //   path: '/com1',

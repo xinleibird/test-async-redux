@@ -25,7 +25,7 @@ const BasicLayout = () => {
         <Layout>
           <Header></Header>
           <Content>
-            <p>login</p>
+            <Route path={'/login'} component={'Login'} />
           </Content>
           <Footer></Footer>
         </Layout>
