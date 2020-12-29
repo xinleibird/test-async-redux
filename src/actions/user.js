@@ -10,8 +10,9 @@ export const queryUserLogin = (data) => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
     // myHeaders.append('Access-Control-Allow-Origin', '*');
+    console.log(process.env);
 
-    const response = await fetch('http://192.168.110.139:9000/login', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: 'POST',
       headers: myHeaders,
       body: new URLSearchParams(data),

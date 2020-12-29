@@ -6,6 +6,7 @@ import { Route } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import Login from './pages/login';
 import UserInfo from './pages/user';
+import SideBar from './components/sidebar';
 
 const store = configureStore({});
 const App = () => {
@@ -13,8 +14,9 @@ const App = () => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <>
-          <Route path="/user" exact component={UserInfo} />
-          <Route component={Login} />
+          <SideBar />
+          {/* <Route path="/user" exact component={UserInfo} />
+          <Route component={Login} /> */}
         </>
       </ConnectedRouter>
     </Provider>
