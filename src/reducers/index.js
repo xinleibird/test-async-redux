@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import { officerList } from './officer';
-import { sidebar } from './sidebar';
+import { routeList } from './routes';
 
 const createRootReducers = (history) => {
   return combineReducers({
     router: connectRouter(history),
-    officerList,
-    sidebar,
+    routeList,
   });
 };
 

@@ -3,18 +3,16 @@ import { Menu } from 'antd';
 import { useSelector, useStore } from 'react-redux';
 
 const SideBar = () => {
-  const store = useStore();
-  console.log(store.getState());
-  const sidebarState = useSelector(({ sidebar }) => {
-    return sidebar;
+  const sidebarState = useSelector(({ routeList }) => {
+    return routeList;
   });
 
-  const loopSidebar = (arr) => {
+  const loopSideBar = (arr) => {
     return arr.map((item) => {
       if (item.routes) {
         return (
           <Menu.SubMenu key={item.path} title={item.title}>
-            {loopSidebar(item.routes)}
+            {loopSideBar(item.routes)}
           </Menu.SubMenu>
         );
       }
@@ -26,7 +24,7 @@ const SideBar = () => {
   return (
     <>
       <Menu theme="dark" mode="inline">
-        {loopSidebar(sidebarState)}
+        {loopSideBar(sidebarState)}
       </Menu>
     </>
   );
