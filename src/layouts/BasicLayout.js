@@ -1,9 +1,10 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component, lazy, Suspense, useEffect } from 'react';
 import SideBar from '../components/SideBar';
 import { Layout } from 'antd';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { Switch, Route } from 'react-router';
 import Login from '../pages/Login';
+import { push } from 'connected-react-router';
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -39,7 +40,7 @@ const AsyncLoadedWrapper = (Comp) => {
   };
 };
 
-const BasicLayout = () => {
+const BasicLayout = ({ authenticated }) => {
   const pathname = useSelector(({ router }) => {
     return router.location.pathname;
   });
@@ -47,6 +48,14 @@ const BasicLayout = () => {
   const routes = useSelector(({ routes }) => {
     return routes;
   });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (authenticated) {
+      dispatch(push('/user'));
+    }
+  }, [authenticated, dispatch]);
 
   return (
     <>
