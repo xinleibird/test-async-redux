@@ -5,62 +5,69 @@ import { useDispatch, useSelector } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
 const Login = () => {
-  const login = useSelector(({ login }) => {
-    return login;
-  });
   const dispatch = useDispatch();
+  const authenticated = useSelector(({ authenticated }) => {
+    return authenticated;
+  });
 
   useEffect(() => {
-    // if (!login.expired) {
-    //   dispatch(push('/user'));
-    // }
+    if (authenticated) {
+      console.log(1);
+      dispatch(push('/user'));
+    }
   });
+
   return (
-    <Form
-      name="basic"
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={(value) => {
-        dispatch(queryUserLogin(value));
-      }}
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
+    <div style={{ padding: '2rem' }}>
+      <Form
+        name="basic"
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={(value) => {
+          dispatch(queryUserLogin(value));
+        }}
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="账号"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: '请输入账号',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
+        <Form.Item
+          label="密码"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: '请输入密码',
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-      <Form.Item name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+        <Form.Item name="remember" valuePropName="">
+          <Checkbox>记住密码</Checkbox>
+        </Form.Item>
 
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item>
+          <Button type="secondary" htmlType="button" disabled>
+            注册
+          </Button>
+          <Button type="primary" htmlType="submit">
+            登录
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 

@@ -1,4 +1,7 @@
-export const login = (state = { role: [], username: '', name: '', expired: true }, action) => {
+export const login = (
+  state = { role: [], username: '', name: '', noExpired: true, authenticated: false },
+  action
+) => {
   switch (action.type) {
     case 'CHECK_USER_STATE': {
       const { result } = action;
@@ -8,8 +11,15 @@ export const login = (state = { role: [], username: '', name: '', expired: true 
         });
 
         const { name } = result.data;
-        const { username, credentialsNonExpired } = result.data.principal;
-        return { ...state, role, name, username, expired: !credentialsNonExpired };
+        const { username, credentialsNonExpired, authenticated } = result.data.principal;
+        return {
+          ...state,
+          role,
+          name,
+          username,
+          noExpired: credentialsNonExpired,
+          authenticated,
+        };
       }
       return { ...state };
     }

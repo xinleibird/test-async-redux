@@ -1,11 +1,15 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 
 const SideBar = () => {
-  const sidebarState = useSelector(({ routeList }) => {
-    return routeList;
+  const sidebarState = useSelector(({ routes }) => {
+    return routes;
+  });
+
+  const pathname = useSelector(({ router }) => {
+    return router.location.pathname;
   });
 
   const dispatch = useDispatch();
@@ -27,7 +31,7 @@ const SideBar = () => {
         <Menu.Item
           key={item.path}
           onClick={() => {
-            dispatch(push('/user'));
+            dispatch(push(item.path));
           }}
         >
           {item.title}
@@ -38,7 +42,7 @@ const SideBar = () => {
 
   return (
     <>
-      <Menu theme="dark" mode="inline">
+      <Menu theme="dark" mode="inline" selectedKeys={[pathname]}>
         {loopSideBar(sidebarState)}
       </Menu>
     </>
