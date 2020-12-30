@@ -3,6 +3,7 @@ import SideBar from '../components/sidebar';
 import { Layout } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router';
+import Login from '../pages/login';
 
 const AsyncLoadedWrapper = (Comp) => {
   return () => {
@@ -31,7 +32,7 @@ const BasicLayout = () => {
         <Layout>
           <Header></Header>
           <Content>
-            <Route path={'/login'} component={'Login'} />
+            <Route path={'/login'} component={Login} />
           </Content>
           <Footer></Footer>
         </Layout>
