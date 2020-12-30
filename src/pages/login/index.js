@@ -1,9 +1,14 @@
 import { Button, Form, Input, Checkbox } from 'antd';
-import { useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const authenticated = useSelector(({ login }) => {
+    return login.authenticated;
+  });
 
   return (
     <div style={{ padding: '2rem' }}>
@@ -47,14 +52,20 @@ const Login = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="secondary" htmlType="button" disabled>
-            注册
-          </Button>
           <Button type="primary" htmlType="submit">
             登录
           </Button>
         </Form.Item>
       </Form>
+      <Button
+        type="secondary"
+        htmlType="button"
+        onClick={() => {
+          console.log(authenticated);
+        }}
+      >
+        注册
+      </Button>
     </div>
   );
 };
