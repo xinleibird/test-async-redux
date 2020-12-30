@@ -1,10 +1,10 @@
-import React, { Component, lazy, Suspense, useEffect } from 'react';
-import SideBar from '../components/SideBar';
 import { Layout } from 'antd';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { Switch, Route } from 'react-router';
-import Login from '../pages/Login';
 import { push } from 'connected-react-router';
+import React, { Component, lazy, Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router';
+import SideBar from '../components/SideBar';
+import Login from '../pages/Login';
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -52,8 +52,11 @@ const BasicLayout = ({ authenticated }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(authenticated);
     if (authenticated) {
       dispatch(push('/user'));
+    } else {
+      dispatch(push('/login'));
     }
   }, [authenticated, dispatch]);
 
