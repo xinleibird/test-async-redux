@@ -3,6 +3,7 @@ import SideBar from '../components/SideBar';
 import { Layout } from 'antd';
 import { useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router';
+import Login from '../pages/Login';
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -53,7 +54,7 @@ const BasicLayout = () => {
         <Layout>
           <Header></Header>
           <Content>
-            <p>login</p>
+            <Login />
           </Content>
           <Footer></Footer>
         </Layout>
