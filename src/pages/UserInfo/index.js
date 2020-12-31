@@ -7,7 +7,6 @@ const UserInfo = () => {
     return login;
   });
 
-  console.log(login);
   return (
     <Descriptions title="用户信息">
       <Descriptions.Item label="用户名">{login.username}</Descriptions.Item>

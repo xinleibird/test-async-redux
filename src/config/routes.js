@@ -14,6 +14,11 @@ const routesConfig = [
     path: '/assessment',
     component: 'AssessmentList',
   },
+  {
+    title: '用户列表',
+    path: '/userList',
+    component: 'UserList',
+  },
   // {
   //   title: '目录1',
   //   path: '/com1',
