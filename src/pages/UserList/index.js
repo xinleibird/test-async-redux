@@ -46,7 +46,6 @@ const UserList = () => {
   });
 
   const { data } = userList;
-  console.log(data);
 
   const dispatch = useDispatch();
 

@@ -25,3 +25,42 @@ export const queryUserList = () => {
     dispatch(checkUserList(json));
   });
 };
+
+const checkContractList = (result) => {
+  return {
+    type: 'CHECK_CONTRACT_LIST',
+    result,
+  };
+};
+
+export const queryContractList = () => {
+  return fetchGetWithCookie('/user/contractList', (dispatch, json) => {
+    dispatch(checkContractList(json));
+  });
+};
+
+const checkDepartmentList = (result) => {
+  return {
+    type: 'CHECK_DEPAETMENT_LIST',
+    result,
+  };
+};
+
+export const queryDepartmentList = () => {
+  return fetchGetWithCookie('/user/departmentList', (dispatch, json) => {
+    dispatch(checkDepartmentList(json));
+  });
+};
+
+const checkPositionList = (result) => {
+  return {
+    type: 'CHECK_POSITION_LIST',
+    result,
+  };
+};
+
+export const queryPositionList = () => {
+  return fetchGetWithCookie('/user/positionList', (dispatch, json) => {
+    dispatch(checkPositionList(json));
+  });
+};
