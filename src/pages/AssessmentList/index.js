@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryAssessmentList } from '../../actions';
+import { v4 as uuid } from 'uuid';
 
 import { Table } from 'antd';
 
@@ -34,12 +35,14 @@ const columns = [
   {
     title: '考核人',
     dataIndex: 'name_of_assessor',
-    key: 'name_of_assessor',
   },
   {
     title: '部门',
     dataIndex: 'department',
-    key: 'department',
+  },
+  {
+    title: '职位',
+    dataIndex: 'position',
   },
 ];
 
@@ -56,17 +59,7 @@ const AssessmentList = () => {
     dispatch(queryAssessmentList());
   }, [dispatch]);
 
-  return (
-    <>
-      {/* <ul>
-        {data?.list?.map((item) => {
-          return <li key={item.id}>{item.name_of_assessor}</li>;
-        })}
-      </ul> */}
-
-      <Table columns={columns} dataSource={data?.list} />
-    </>
-  );
+  return <Table columns={columns} dataSource={data?.list} rowKey="id" />;
 };
 
 export default AssessmentList;
