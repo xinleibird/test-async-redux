@@ -52,9 +52,7 @@ const BasicLayout = ({ authenticated }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (authenticated) {
-      dispatch(push('/user'));
-    } else {
+    if (!authenticated) {
       dispatch(push('/login'));
     }
   }, [authenticated, dispatch]);
@@ -65,9 +63,13 @@ const BasicLayout = ({ authenticated }) => {
         <Layout>
           <Header></Header>
           <Content>
-            <Login />
+            <div style={{ textAlign: 'center' }}>
+              <h1 style={{ paddingTop: '3rem' }}>后台系统</h1>
+              <h3>登录界面</h3>
+              <Login />
+            </div>
           </Content>
-          <Footer></Footer>
+          <Footer style={{ alignSelf: 'center' }}>copyright @ 鼎曦源</Footer>
         </Layout>
       ) : (
         <Layout>
@@ -95,7 +97,7 @@ const BasicLayout = ({ authenticated }) => {
             </Content>
           </Layout>
 
-          <Footer>Fotter</Footer>
+          <Footer style={{ alignSelf: 'center' }}>copyright @ 鼎曦源</Footer>
         </Layout>
       )}
     </>

@@ -13,9 +13,6 @@ const UserInfo = () => {
       <Descriptions.Item label="用户名">{login.username}</Descriptions.Item>
       <Descriptions.Item label="姓名">{login.name}</Descriptions.Item>
       <Descriptions.Item label="登录地址">{login.remoteAddress}</Descriptions.Item>
-      <Descriptions.Item label="Address">
-        No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-      </Descriptions.Item>
     </Descriptions>
   );
 };

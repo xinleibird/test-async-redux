@@ -1,12 +1,24 @@
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
 const Login = () => {
   const dispatch = useDispatch();
 
+  const authenticated = useSelector(({ login }) => {
+    return login.authenticated;
+  });
+
+  useEffect(() => {
+    if (authenticated) {
+      dispatch(push('/user'));
+    }
+  }, [dispatch, authenticated]);
+
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '4.2rem 2rem', maxWidth: 500, margin: '0 auto' }}>
       <Form
         name="basic"
         initialValues={{
