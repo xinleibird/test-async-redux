@@ -1,2 +1,2 @@
 export { checkUserState, queryUserLogin } from './login';
-export { queryAssessmentList } from './user';
+export { queryAssessmentList, queryUserList } from './user';
