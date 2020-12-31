@@ -52,7 +52,6 @@ const BasicLayout = ({ authenticated }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(authenticated);
     if (authenticated) {
       dispatch(push('/user'));
     } else {

@@ -1,12 +1,9 @@
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const authenticated = useSelector(({ login }) => {
-    return login.authenticated;
-  });
 
   return (
     <div style={{ padding: '2rem' }}>

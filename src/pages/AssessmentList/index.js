@@ -1,35 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryAssessmentList } from '../../actions';
-import { v4 as uuid } from 'uuid';
 
 import { Table } from 'antd';
-
-// {
-//   "id": 2,
-//   "name_of_assessor": "123",
-//   "department": "1",
-//   "position": "1",
-//   "assessment_results": "1",
-//   "create_time": "2020-12-15 17:16:50",
-//   "update_time": "2020-12-21 15:18:35",
-//   "update_id": 1
-// },
-
-// {
-//   title: 'Name',
-//   dataIndex: 'name',
-//   key: 'name',
-//   render: text => <a>{text}</a>,
-// },
-
-// {
-// key: '1',
-// name: 'John Brown',
-// age: 32,
-// address: 'New York No. 1 Lake Park',
-// tags: ['nice', 'developer'],
-// },
 
 const columns = [
   {
@@ -43,6 +16,34 @@ const columns = [
   {
     title: '职位',
     dataIndex: 'position',
+  },
+  {
+    title: '考核结果',
+    dataIndex: 'assessment_results',
+  },
+  {
+    title: '创建时间',
+    dataIndex: 'create_time',
+    sorter: (a, b) => {
+      const dateAStr = a.create_time.replace(' ', 'T');
+      const dateBStr = b.create_time.replace(' ', 'T');
+
+      return new Date(dateAStr).getTime() - new Date(dateBStr).getTime();
+    },
+  },
+  {
+    title: '修改人',
+    dataIndex: 'update_id',
+  },
+  {
+    title: '修改时间',
+    dataIndex: 'update_time',
+    sorter: (a, b) => {
+      const dateAStr = a.update_time.replace(' ', 'T');
+      const dateBStr = b.update_time.replace(' ', 'T');
+
+      return new Date(dateAStr).getTime() - new Date(dateBStr).getTime();
+    },
   },
 ];
 
@@ -59,7 +60,11 @@ const AssessmentList = () => {
     dispatch(queryAssessmentList());
   }, [dispatch]);
 
-  return <Table columns={columns} dataSource={data?.list} rowKey="id" />;
+  return (
+    <>
+      <Table columns={columns} dataSource={data?.list} rowKey="id" />
+    </>
+  );
 };
 
 export default AssessmentList;

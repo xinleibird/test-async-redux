@@ -3,8 +3,9 @@ const initLoginState = () => {
   const name = JSON.parse(localStorage.getItem('name')) || '';
   const role = JSON.parse(localStorage.getItem('role')) || '';
   const authenticated = JSON.parse(localStorage.getItem('authenticated')) || false;
+  const remoteAddress = JSON.parse(localStorage.getItem('remoteAddress')) || '';
 
-  return { username, name, role, authenticated };
+  return { username, name, role, authenticated, remoteAddress };
 };
 
 const setLoginStateToEmpty = () => {
@@ -13,18 +14,20 @@ const setLoginStateToEmpty = () => {
   const name = '';
   const role = '';
   const authenticated = false;
+  const remoteAddress = '';
 
-  return { username, name, role, authenticated };
+  return { username, name, role, authenticated, remoteAddress };
 };
 
 const setLoginStateToLocalStorage = (state) => {
   localStorage.clear();
 
-  const { username, name, role, authenticated } = state;
+  const { username, name, role, authenticated, remoteAddress } = state;
   localStorage.setItem('username', JSON.stringify(username));
   localStorage.setItem('name', JSON.stringify(name));
   localStorage.setItem('role', JSON.stringify(role));
   localStorage.setItem('authenticated', JSON.stringify(authenticated));
+  localStorage.setItem('remoteAddress', JSON.stringify(remoteAddress));
 };
 
 export const login = (state = initLoginState(), action) => {
@@ -38,9 +41,10 @@ export const login = (state = initLoginState(), action) => {
 
         const { name, authenticated } = userState.data;
         const { username } = userState.data.principal;
+        const { remoteAddress } = userState.data.details;
 
-        setLoginStateToLocalStorage({ role, name, username, authenticated });
-        return { ...state, role, name, username, authenticated };
+        setLoginStateToLocalStorage({ role, name, username, authenticated, remoteAddress });
+        return { ...state, role, name, username, authenticated, remoteAddress };
       }
       return { ...state };
     }

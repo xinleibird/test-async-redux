@@ -1,11 +1,16 @@
 const routesConfig = [
   {
+    title: '用户登录',
+    path: '/login',
+    component: 'Login',
+  },
+  {
     title: '用户信息',
     path: '/user',
     component: 'UserInfo',
   },
   {
-    title: '考核查询',
+    title: '员工考核',
     path: '/assessment',
     component: 'AssessmentList',
   },

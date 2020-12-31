@@ -16,6 +16,9 @@ const SideBar = () => {
 
   const loopSideBar = (arr) => {
     return arr.map((item) => {
+      if (item.path === '/login') {
+        return;
+      }
       if (item.routes) {
         return (
           <Menu.SubMenu key={item.path} title={item.title}>
