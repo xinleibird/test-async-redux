@@ -3,6 +3,7 @@ import { push } from 'connected-react-router';
 import React, { Component, lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router';
+import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
 import Login from '../pages/Login';
 
@@ -61,19 +62,16 @@ const BasicLayout = ({ authenticated }) => {
     <>
       {pathname === '/login' ? (
         <Layout>
-          <Header></Header>
           <Content>
-            <div style={{ textAlign: 'center' }}>
-              <h1 style={{ paddingTop: '3rem' }}>后台系统</h1>
-              <h3>登录界面</h3>
-              <Login />
-            </div>
+            <Login />
           </Content>
-          <Footer style={{ alignSelf: 'center' }}>copyright @ 鼎曦源</Footer>
+          <Footer style={{ alignSelf: 'center', margin: '2.2rem' }}>copyright @ 鼎曦源</Footer>
         </Layout>
       ) : (
         <Layout>
-          <Header></Header>
+          <Header>
+            <NavBar />
+          </Header>
           <Layout>
             <Sider>
               <SideBar />
@@ -93,6 +91,13 @@ const BasicLayout = ({ authenticated }) => {
                     />
                   );
                 })}
+                <Route
+                  component={AsyncLoadedWrapper(
+                    lazy(() => {
+                      return import('../pages/404');
+                    })
+                  )}
+                />
               </Switch>
             </Content>
           </Layout>

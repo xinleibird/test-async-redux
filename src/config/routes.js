@@ -16,7 +16,7 @@ const routesConfig = [
   },
   {
     title: '用户列表',
-    path: '/userList',
+    path: '/users',
     component: 'UserList',
   },
   // {

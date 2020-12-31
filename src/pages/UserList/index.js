@@ -6,21 +6,14 @@ import { Table } from 'antd';
 
 const columns = [
   {
-    title: '考核人',
-    dataIndex: 'name_of_assessor',
+    title: '用户名',
+    dataIndex: 'username',
   },
   {
-    title: '部门',
-    dataIndex: 'department',
+    title: '员工',
+    dataIndex: 'staff_id',
   },
-  {
-    title: '职位',
-    dataIndex: 'position',
-  },
-  {
-    title: '考核结果',
-    dataIndex: 'assessment_results',
-  },
+
   {
     title: '创建时间',
     dataIndex: 'create_time',
@@ -53,6 +46,7 @@ const UserList = () => {
   });
 
   const { data } = userList;
+  console.log(data);
 
   const dispatch = useDispatch();
 
