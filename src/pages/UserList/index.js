@@ -6,19 +6,19 @@ import { Table } from 'antd';
 
 const columns = [
   {
-    title: '考核人',
-    dataIndex: 'name_of_assessor',
+    title: '用户名',
+    dataIndex: 'username',
   },
   {
-    title: '部门',
-    dataIndex: 'department',
+    title: '创建时间',
+    dataIndex: 'create_time',
   },
   {
-    title: '职位',
-    dataIndex: 'position',
+    title: '更新时间',
+    dataIndex: 'pupdate_timeosition',
   },
   {
-    title: '考核结果',
+    title: '权限',
     dataIndex: 'assessment_results',
   },
   {
