@@ -10,12 +10,12 @@ const columns = [
     dataIndex: 'username',
   },
   {
-    title: '创建时间',
-    dataIndex: 'create_time',
+    title: '员工',
+    dataIndex: 'staff_id',
   },
   {
-    title: '更新时间',
-    dataIndex: 'pupdate_timeosition',
+    title: '登录时间',
+    dataIndex: 'login_time',
   },
   {
     title: '权限',
@@ -53,6 +53,7 @@ const UserList = () => {
   });
 
   const { data } = userList;
+  console.log(data);
 
   const dispatch = useDispatch();
 

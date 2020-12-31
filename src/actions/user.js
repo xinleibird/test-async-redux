@@ -22,6 +22,7 @@ const checkUserList = (result) => {
 
 export const queryUserList = () => {
   return fetchGetWithCookie('/user/userList', (dispatch, json) => {
+    console.log(json);
     dispatch(checkUserList(json));
   });
 };
