@@ -143,7 +143,7 @@ export const querySProjectList = () => {
 };
 const checkStaffList = (result) => {
   return {
-    type: 'CHECK_SPROJECT_LIST',
+    type: 'CHECK_STAFF_LIST',
     result,
   };
 };

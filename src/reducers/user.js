@@ -192,7 +192,7 @@ export const user = (
         staffList: state.staffList,
       };
     }
-    case 'CHECK_SPROJECT_LIST': {
+    case 'CHECK_STAFF_LIST': {
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
