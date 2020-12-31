@@ -64,3 +64,29 @@ export const queryPositionList = () => {
     dispatch(checkPositionList(json));
   });
 };
+
+const checkProjectList = (result) => {
+  return {
+    type: 'CHECK_PROJECT_LIST',
+    result,
+  };
+};
+
+export const queryProjectList = () => {
+  return fetchGetWithCookie('/user/projectList', (dispatch, json) => {
+    dispatch(checkProjectList(json));
+  });
+};
+
+const checkPunchClockList = (result) => {
+  return {
+    type: 'CHECK_PUNCHCLOOK_LIST',
+    result,
+  };
+};
+
+export const queryPunchClockList = () => {
+  return fetchGetWithCookie('/user/punchClockList', (dispatch, json) => {
+    dispatch(checkPunchClockList(json));
+  });
+};

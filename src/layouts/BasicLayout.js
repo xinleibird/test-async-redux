@@ -92,6 +92,14 @@ const BasicLayout = ({ authenticated }) => {
                   );
                 })}
                 <Route
+                  path="/"
+                  component={AsyncLoadedWrapper(
+                    lazy(() => {
+                      dispatch(push('/user'));
+                    })
+                  )}
+                />
+                <Route
                   component={AsyncLoadedWrapper(
                     lazy(() => {
                       return import('../pages/404');

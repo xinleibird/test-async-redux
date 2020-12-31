@@ -5,4 +5,6 @@ export {
   queryContractList,
   queryDepartmentList,
   queryPositionList,
+  queryProjectList,
+  queryPunchClockList,
 } from './user';

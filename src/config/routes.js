@@ -34,6 +34,16 @@ const routesConfig = [
     path: '/positionList',
     component: 'PositionList',
   },
+  {
+    title: '项目信息',
+    path: '/projectList',
+    component: 'ProjectList',
+  },
+  {
+    title: '打卡信息',
+    path: '/punchClockList',
+    component: 'PunchClockList',
+  },
   // {
   //   title: '目录1',
   //   path: '/com1',
