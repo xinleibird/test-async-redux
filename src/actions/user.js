@@ -12,3 +12,16 @@ export const queryAssessmentList = () => {
     dispatch(checkAssessmentList(json));
   });
 };
+
+const checkUserList = (result) => {
+  return {
+    tpye: 'CHECK_USER_LIST',
+    result,
+  };
+};
+
+export const queryUserList = () => {
+  return fetchGetWithCookie('/user/userList', (dispatch, json) => {
+    dispatch(checkUserList(json));
+  });
+};
