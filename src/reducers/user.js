@@ -192,6 +192,7 @@ export const user = (
         staffList: state.staffList,
       };
     }
+    // eslint-disable-next-line
     case 'CHECK_STAFF_LIST': {
       return {
         assessmentList: state.assessmentList,

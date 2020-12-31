@@ -10,7 +10,8 @@ const layout = {
 };
 
 const tailLayout = {
-  wrapperCol: { offset: 8, span: 8 },
+  labelCol: { span: 8 },
+  wrapperCol: { xs: { offset: 0 }, sm: { offset: 8, span: 8 } },
 };
 
 const Login = () => {
