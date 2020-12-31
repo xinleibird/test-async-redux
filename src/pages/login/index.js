@@ -55,15 +55,6 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Button
-        type="secondary"
-        htmlType="button"
-        onClick={() => {
-          console.log(authenticated);
-        }}
-      >
-        注册
-      </Button>
     </div>
   );
 };

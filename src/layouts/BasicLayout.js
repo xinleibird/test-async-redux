@@ -76,7 +76,7 @@ const BasicLayout = ({ authenticated }) => {
             <Sider>
               <SideBar />
             </Sider>
-            <Content style={{ minHeight: 1000 }}>
+            <Content style={{ minHeight: 1000, padding: '3rem' }}>
               <Switch>
                 {routes.map((item) => {
                   return (
