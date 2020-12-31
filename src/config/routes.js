@@ -4,6 +4,11 @@ const routesConfig = [
     path: '/user',
     component: 'UserInfo',
   },
+  {
+    title: '考核查询',
+    path: '/assessment',
+    component: 'AssessmentList',
+  },
   // {
   //   title: '目录1',
   //   path: '/com1',
