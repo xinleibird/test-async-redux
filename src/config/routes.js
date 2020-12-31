@@ -16,8 +16,23 @@ const routesConfig = [
   },
   {
     title: '用户列表',
-    path: '/userlist',
+    path: '/users',
     component: 'UserList',
+  },
+  {
+    title: '合同查询',
+    path: '/contractList',
+    component: 'ContractList',
+  },
+  {
+    title: '部门信息',
+    path: '/departmentList',
+    component: 'DepartmentList',
+  },
+  {
+    title: '职位信息',
+    path: '/positionList',
+    component: 'PositionList',
   },
   // {
   //   title: '目录1',
