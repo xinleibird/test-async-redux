@@ -13,14 +13,7 @@ const columns = [
     title: '员工',
     dataIndex: 'staff_id',
   },
-  {
-    title: '登录时间',
-    dataIndex: 'login_time',
-  },
-  {
-    title: '权限',
-    dataIndex: 'assessment_results',
-  },
+
   {
     title: '创建时间',
     dataIndex: 'create_time',
