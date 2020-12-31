@@ -1,6 +1,4 @@
-import { Button, Form, Input, Checkbox } from 'antd';
-import { push } from 'connected-react-router';
-import { useEffect } from 'react';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryUserLogin } from '../../actions';
 
