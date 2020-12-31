@@ -44,6 +44,31 @@ const routesConfig = [
     path: '/punchClockList',
     component: 'PunchClockList',
   },
+  {
+    title: '采购信息',
+    path: '/purchaseList',
+    component: 'PurchaseList',
+  },
+  {
+    title: '离职员工信息',
+    path: '/quitList',
+    component: 'QuitList',
+  },
+  {
+    title: '报废和维修信息',
+    path: '/repairList',
+    component: 'RepairList',
+  },
+  {
+    title: '项目人员信息',
+    path: '/sProjectList',
+    component: 'SProjectList',
+  },
+  {
+    title: '人员信息',
+    path: '/staffList',
+    component: 'StaffList',
+  },
   // {
   //   title: '目录1',
   //   path: '/com1',

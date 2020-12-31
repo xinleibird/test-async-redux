@@ -7,6 +7,11 @@ export const user = (
     positionList: {},
     projectList: {},
     punchClockList: {},
+    purchaseList: {},
+    quitList: {},
+    repairList: {},
+    sProjectList: {},
+    staffList: {},
   },
   action
 ) => {
@@ -20,6 +25,11 @@ export const user = (
         positionList: state.positionList,
         projectList: state.projectList,
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_USER_LIST': {
@@ -31,6 +41,11 @@ export const user = (
         positionList: state.positionList,
         projectList: state.projectList,
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_CONTRACT_LIST': {
@@ -42,6 +57,11 @@ export const user = (
         positionList: state.positionList,
         projectList: state.projectList,
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_DEPAETMENT_LIST': {
@@ -53,6 +73,11 @@ export const user = (
         positionList: state.positionList,
         projectList: state.projectList,
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_POSITION_LIST': {
@@ -64,6 +89,11 @@ export const user = (
         positionList: { ...action.result },
         projectList: state.projectList,
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_PROJECT_LIST': {
@@ -75,6 +105,11 @@ export const user = (
         positionList: state.positionList,
         projectList: { ...action.result },
         punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
       };
     }
     case 'CHECK_PUNCHCLOOK_LIST': {
@@ -84,8 +119,93 @@ export const user = (
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
-        projectList: state.punchClockList,
+        projectList: state.projectList,
         punchClockList: { ...action.result },
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_PURCASE_LIST': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchClockList: state.punchClockList,
+        purchaseList: { ...action.result },
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_QUIT_LIST': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: { ...action.result },
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_REPAIR_LIST': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: { ...action.result },
+        sProjectList: state.sProjectList,
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_SPROJECT_LIST': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: { ...action.result },
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_SPROJECT_LIST': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchClockList: state.punchClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        repairList: state.repairList,
+        sProjectList: state.sProjectList,
+        staffList: { ...action.result },
       };
     }
 

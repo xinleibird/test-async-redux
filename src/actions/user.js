@@ -90,3 +90,66 @@ export const queryPunchClockList = () => {
     dispatch(checkPunchClockList(json));
   });
 };
+
+const checkPurchaseList = (result) => {
+  return {
+    type: 'CHECK_PURCASE_LIST',
+    result,
+  };
+};
+
+export const queryPurchaseList = () => {
+  return fetchGetWithCookie('/user/purchaseList', (dispatch, json) => {
+    dispatch(checkPurchaseList(json));
+  });
+};
+
+const checkQuitList = (result) => {
+  return {
+    type: 'CHECK_QUIT_LIST',
+    result,
+  };
+};
+
+export const queryQuitList = () => {
+  return fetchGetWithCookie('/user/quitList', (dispatch, json) => {
+    dispatch(checkQuitList(json));
+  });
+};
+const checkRepairList = (result) => {
+  return {
+    type: 'CHECK_REPAIR_LIST',
+    result,
+  };
+};
+
+export const queryRepairList = () => {
+  return fetchGetWithCookie('/user/repairList', (dispatch, json) => {
+    dispatch(checkRepairList(json));
+  });
+};
+
+const checkSProjectList = (result) => {
+  return {
+    type: 'CHECK_SPROJECT_LIST',
+    result,
+  };
+};
+
+export const querySProjectList = () => {
+  return fetchGetWithCookie('/user/sProjectList', (dispatch, json) => {
+    dispatch(checkSProjectList(json));
+  });
+};
+const checkStaffList = (result) => {
+  return {
+    type: 'CHECK_SPROJECT_LIST',
+    result,
+  };
+};
+
+export const queryStaffList = () => {
+  return fetchGetWithCookie('/user/staffList', (dispatch, json) => {
+    dispatch(checkStaffList(json));
+  });
+};
