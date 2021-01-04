@@ -109,7 +109,6 @@ const BasicLayout = ({ authenticated }) => {
               </Switch>
             </Content>
           </Layout>
-
           <Footer style={{ alignSelf: 'center' }}>copyright @ 鼎曦源</Footer>
         </Layout>
       )}

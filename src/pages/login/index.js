@@ -30,7 +30,10 @@ const Login = () => {
   return (
     <>
       <header style={{ textAlign: 'center', padding: '2rem 2rem 6rem 2rem' }}>
-        <h1 style={{ paddingTop: '3rem' }}>后台系统</h1>
+        <h1 style={{ paddingTop: '3rem' }}>
+          <span style={{ color: 'blue' }}> LOGO</span>
+          后台系统
+        </h1>
         <h3>登录界面</h3>
       </header>
       <Form

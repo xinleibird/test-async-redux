@@ -3,6 +3,7 @@ import { Dropdown, Menu, Avatar, Row, Col } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 import { setUserLoginState } from '../../actions';
+import { UserOutlined } from '@ant-design/icons';
 
 const logoResponse = {
   xs: 16,
@@ -63,7 +64,9 @@ const NavBar = () => {
                 outline: 0,
               }}
             >
-              <Avatar style={{ backgroundColor: '#87d068' }}>{username}</Avatar>
+              <Avatar>
+                <UserOutlined />
+              </Avatar>
             </button>
           </Dropdown>
         </Col>
