@@ -6,10 +6,10 @@ export {
   queryDepartmentList,
   queryPositionList,
   queryProjectList,
-  queryPunchClockList,
+  queryPunchTheClockList,
   queryPurchaseList,
   queryQuitList,
-  queryRepairList,
+  queryScrapAndRepairList,
   queryStaffAndProjectList,
   queryStaffList,
 } from './user';

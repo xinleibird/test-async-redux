@@ -78,16 +78,16 @@ export const queryProjectList = () => {
   });
 };
 
-const checkPunchClockList = (result) => {
+const checkPunchTheClockList = (result) => {
   return {
-    type: 'CHECK_PUNCHCLOOK_LIST',
+    type: 'CHECK_PUNCHTHECLOOK_LIST',
     result,
   };
 };
 
-export const queryPunchClockList = () => {
-  return fetchGetWithToken('/user/punchClockList', (dispatch, json) => {
-    dispatch(checkPunchClockList(json));
+export const queryPunchTheClockList = () => {
+  return fetchGetWithToken('/user/punchTheClockList', (dispatch, json) => {
+    dispatch(checkPunchTheClockList(json));
   });
 };
 
@@ -99,7 +99,7 @@ const checkPurchaseList = (result) => {
 };
 
 export const queryPurchaseList = () => {
-  return fetchGetWithToken('/user/punchTheClockList', (dispatch, json) => {
+  return fetchGetWithToken('/user/purchaseList', (dispatch, json) => {
     dispatch(checkPurchaseList(json));
   });
 };
@@ -116,16 +116,16 @@ export const queryQuitList = () => {
     dispatch(checkQuitList(json));
   });
 };
-const checkRepairList = (result) => {
+const checkScrapAndRepairList = (result) => {
   return {
-    type: 'CHECK_REPAIR_LIST',
+    type: 'CHECK_SCRAPANDREPAIR_LIST',
     result,
   };
 };
 
-export const queryRepairList = () => {
-  return fetchGetWithToken('/user/repairList', (dispatch, json) => {
-    dispatch(checkRepairList(json));
+export const queryScrapAndRepairList = () => {
+  return fetchGetWithToken('/user/scrapAndRepairList', (dispatch, json) => {
+    dispatch(checkScrapAndRepairList(json));
   });
 };
 

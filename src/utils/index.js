@@ -16,7 +16,7 @@ export const fetchPostLogin = (urlParted, data, callback) => {
   };
 };
 
-export const fetchPostWithCookie = (urlParted, data, callback) => {
+export const fetchPostWithToken = (urlParted, data, callback) => {
   return async (dispatch) => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');

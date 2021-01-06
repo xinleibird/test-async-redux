@@ -1,24 +1,27 @@
 const initLoginState = () => {
   const authenticated = localStorage.getItem('authenticated') || false;
   const token = localStorage.getItem('token') || '';
+  const username = localStorage.getItem('username') || '';
 
-  return { authenticated, token };
+  return { authenticated, token, username };
 };
 
 const setLoginStateToEmpty = () => {
   localStorage.clear();
   const authenticated = false;
   const token = '';
+  const username = '';
 
-  return { authenticated, token };
+  return { authenticated, token, username };
 };
 
 const setLoginStateToLocalStorage = (state) => {
   localStorage.clear();
 
-  const { authenticated, token } = state;
+  const { authenticated, token, username } = state;
   localStorage.setItem('authenticated', authenticated);
   localStorage.setItem('token', token);
+  localStorage.setItem('uesrname', username);
 };
 
 export const login = (state = initLoginState(), action) => {
@@ -26,10 +29,10 @@ export const login = (state = initLoginState(), action) => {
     case 'CHECK_USER_STATE': {
       const { loginState } = action;
       if (loginState?.token) {
-        const { token } = loginState;
+        const { token, username } = loginState;
 
-        setLoginStateToLocalStorage({ authenticated: token ? true : false, token });
-        return { ...state, authenticated: token ? true : false };
+        setLoginStateToLocalStorage({ authenticated: token ? true : false, token, username });
+        return { ...state, authenticated: token ? true : false, username };
       }
       return { ...state };
     }
