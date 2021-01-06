@@ -42,7 +42,7 @@ const routesConfig = [
   {
     title: '打卡信息',
     path: '/punchTheClockList',
-    component: 'PunchClockList',
+    component: 'PunchTheClockList',
   },
   {
     title: '采购信息',
@@ -56,8 +56,8 @@ const routesConfig = [
   },
   {
     title: '报废和维修信息',
-    path: '/repairList',
-    component: 'RepairList',
+    path: '/scrapAndRepairList',
+    component: 'ScrapAndRepairList',
   },
   {
     title: '项目人员信息',
