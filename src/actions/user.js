@@ -1,4 +1,4 @@
-import { fetchGetWithCookie } from '../utils';
+import { fetchGetWithToken } from '../utils';
 
 const checkAssessmentList = (result) => {
   return {
@@ -8,7 +8,7 @@ const checkAssessmentList = (result) => {
 };
 
 export const queryAssessmentList = () => {
-  return fetchGetWithCookie('/user/assessmentList', (dispatch, json) => {
+  return fetchGetWithToken('/user/assessmentList', (dispatch, json) => {
     dispatch(checkAssessmentList(json));
   });
 };
@@ -21,7 +21,7 @@ const checkUserList = (result) => {
 };
 
 export const queryUserList = () => {
-  return fetchGetWithCookie('/user/userList', (dispatch, json) => {
+  return fetchGetWithToken('/user/userList', (dispatch, json) => {
     dispatch(checkUserList(json));
   });
 };
@@ -34,7 +34,7 @@ const checkContractList = (result) => {
 };
 
 export const queryContractList = () => {
-  return fetchGetWithCookie('/user/contractList', (dispatch, json) => {
+  return fetchGetWithToken('/user/contractList', (dispatch, json) => {
     dispatch(checkContractList(json));
   });
 };
@@ -47,7 +47,7 @@ const checkDepartmentList = (result) => {
 };
 
 export const queryDepartmentList = () => {
-  return fetchGetWithCookie('/user/departmentList', (dispatch, json) => {
+  return fetchGetWithToken('/user/departmentList', (dispatch, json) => {
     dispatch(checkDepartmentList(json));
   });
 };
@@ -60,7 +60,7 @@ const checkPositionList = (result) => {
 };
 
 export const queryPositionList = () => {
-  return fetchGetWithCookie('/user/positionList', (dispatch, json) => {
+  return fetchGetWithToken('/user/positionList', (dispatch, json) => {
     dispatch(checkPositionList(json));
   });
 };
@@ -73,7 +73,7 @@ const checkProjectList = (result) => {
 };
 
 export const queryProjectList = () => {
-  return fetchGetWithCookie('/user/projectList', (dispatch, json) => {
+  return fetchGetWithToken('/user/projectList', (dispatch, json) => {
     dispatch(checkProjectList(json));
   });
 };
@@ -86,7 +86,7 @@ const checkPunchClockList = (result) => {
 };
 
 export const queryPunchClockList = () => {
-  return fetchGetWithCookie('/user/punchClockList', (dispatch, json) => {
+  return fetchGetWithToken('/user/punchClockList', (dispatch, json) => {
     dispatch(checkPunchClockList(json));
   });
 };
@@ -99,7 +99,7 @@ const checkPurchaseList = (result) => {
 };
 
 export const queryPurchaseList = () => {
-  return fetchGetWithCookie('/user/purchaseList', (dispatch, json) => {
+  return fetchGetWithToken('/user/purchaseList', (dispatch, json) => {
     dispatch(checkPurchaseList(json));
   });
 };
@@ -112,7 +112,7 @@ const checkQuitList = (result) => {
 };
 
 export const queryQuitList = () => {
-  return fetchGetWithCookie('/user/quitList', (dispatch, json) => {
+  return fetchGetWithToken('/user/quitList', (dispatch, json) => {
     dispatch(checkQuitList(json));
   });
 };
@@ -124,7 +124,7 @@ const checkRepairList = (result) => {
 };
 
 export const queryRepairList = () => {
-  return fetchGetWithCookie('/user/repairList', (dispatch, json) => {
+  return fetchGetWithToken('/user/repairList', (dispatch, json) => {
     dispatch(checkRepairList(json));
   });
 };
@@ -137,7 +137,7 @@ const checkSProjectList = (result) => {
 };
 
 export const querySProjectList = () => {
-  return fetchGetWithCookie('/user/sProjectList', (dispatch, json) => {
+  return fetchGetWithToken('/user/sProjectList', (dispatch, json) => {
     dispatch(checkSProjectList(json));
   });
 };
@@ -149,7 +149,7 @@ const checkStaffList = (result) => {
 };
 
 export const queryStaffList = () => {
-  return fetchGetWithCookie('/user/staffList', (dispatch, json) => {
+  return fetchGetWithToken('/user/staffList', (dispatch, json) => {
     dispatch(checkStaffList(json));
   });
 };

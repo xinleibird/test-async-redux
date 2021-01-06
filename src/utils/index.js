@@ -3,15 +3,13 @@ import { setUserLoginState } from '../actions/login';
 export const fetchPostLogin = (urlParted, data, callback) => {
   return async (dispatch) => {
     const myHeaders = new Headers();
-    myHeaders.append('Authorization', 'Basic Og==');
+    // myHeaders.append('Authorization', 'Basic Og==');
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
     const response = await fetch(`${process.env.REACT_APP_API_URL}${urlParted}`, {
       method: 'POST',
       headers: myHeaders,
       body: new URLSearchParams(data),
-      mode: 'cors',
-      // redirect: 'follow',
     });
     const json = await response.json();
     callback(dispatch, json);
@@ -27,25 +25,22 @@ export const fetchPostWithCookie = (urlParted, data, callback) => {
       method: 'POST',
       headers: myHeaders,
       body: new URLSearchParams(data),
-      credentials: 'include',
-      mode: 'cors',
     });
     const json = await response.json();
     callback(dispatch, json);
   };
 };
 
-export const fetchGetWithCookie = (urlParted, callback) => {
+export const fetchGetWithToken = (urlParted, callback) => {
   return async (dispatch) => {
     const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    const token = localStorage.getItem('token');
+    myHeaders.append('Authorization', `Bearer ${token}`);
 
     const response = await fetch(`${process.env.REACT_APP_API_URL}${urlParted}`, {
       method: 'GET',
-      // headers: myHeaders,
-      credentials: 'include',
-      mode: 'cors',
-      // redirect: 'follow',
+      headers: myHeaders,
     });
     const json = await response.json();
 

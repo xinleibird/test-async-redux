@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Dropdown, Menu, Avatar, Row, Col } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
 import { setUserLoginState } from '../../actions';
 import { UserOutlined } from '@ant-design/icons';
@@ -18,10 +18,6 @@ const iconResponse = {
 };
 
 const NavBar = () => {
-  const username = useSelector(({ login }) => {
-    return login.username;
-  });
-
   const dispatch = useDispatch();
   const SubMenu = useMemo(() => {
     return (

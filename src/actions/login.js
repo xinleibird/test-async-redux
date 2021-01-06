@@ -1,9 +1,9 @@
 import { fetchPostLogin } from '../utils';
 
-export const checkUserState = (userState) => {
+export const checkUserState = (loginState) => {
   return {
     type: 'CHECK_USER_STATE',
-    userState,
+    loginState,
   };
 };
 

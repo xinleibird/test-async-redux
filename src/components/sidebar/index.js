@@ -17,7 +17,7 @@ const SideBar = () => {
   const loopSideBar = (arr) => {
     return arr.map((item) => {
       if (item.path === '/login') {
-        return;
+        return null;
       }
       if (item.routes) {
         return (
