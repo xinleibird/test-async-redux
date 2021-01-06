@@ -99,7 +99,7 @@ const checkPurchaseList = (result) => {
 };
 
 export const queryPurchaseList = () => {
-  return fetchGetWithToken('/user/purchaseList', (dispatch, json) => {
+  return fetchGetWithToken('/user/punchTheClockList', (dispatch, json) => {
     dispatch(checkPurchaseList(json));
   });
 };
@@ -129,16 +129,16 @@ export const queryRepairList = () => {
   });
 };
 
-const checkSProjectList = (result) => {
+const checkStaffAndProjectList = (result) => {
   return {
-    type: 'CHECK_SPROJECT_LIST',
+    type: 'CHECK_STAFFANDPROJECT_LIST',
     result,
   };
 };
 
-export const querySProjectList = () => {
-  return fetchGetWithToken('/user/sProjectList', (dispatch, json) => {
-    dispatch(checkSProjectList(json));
+export const queryStaffAndProjectList = () => {
+  return fetchGetWithToken('/user/staffAndProjectList', (dispatch, json) => {
+    dispatch(checkStaffAndProjectList(json));
   });
 };
 const checkStaffList = (result) => {

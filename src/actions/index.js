@@ -10,6 +10,6 @@ export {
   queryPurchaseList,
   queryQuitList,
   queryRepairList,
-  querySProjectList,
+  queryStaffAndProjectList,
   queryStaffList,
 } from './user';

@@ -41,7 +41,7 @@ const routesConfig = [
   },
   {
     title: '打卡信息',
-    path: '/punchClockList',
+    path: '/punchTheClockList',
     component: 'PunchClockList',
   },
   {
@@ -61,8 +61,8 @@ const routesConfig = [
   },
   {
     title: '项目人员信息',
-    path: '/sProjectList',
-    component: 'SProjectList',
+    path: '/staffAndProjectList',
+    component: 'StaffAndProjectList',
   },
   {
     title: '人员信息',

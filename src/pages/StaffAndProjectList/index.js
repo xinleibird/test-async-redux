@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { querySProjectList } from '../../actions';
+import { queryStaffAndProjectList } from '../../actions';
 
 import { Table } from 'antd';
 
@@ -44,17 +44,17 @@ const columns = [
   },
 ];
 
-const SProjectList = () => {
-  const sProjectList = useSelector(({ user }) => {
-    return user.sProjectList;
+const StaffAndProjectList = () => {
+  const staffAndProjectList = useSelector(({ user }) => {
+    return user.staffAndProjectList;
   });
 
-  const { data } = sProjectList;
+  const { data } = staffAndProjectList;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(querySProjectList());
+    dispatch(queryStaffAndProjectList());
   }, [dispatch]);
 
   return (
@@ -64,4 +64,4 @@ const SProjectList = () => {
   );
 };
 
-export default SProjectList;
+export default StaffAndProjectList;

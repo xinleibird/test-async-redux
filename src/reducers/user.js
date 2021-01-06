@@ -10,7 +10,7 @@ export const user = (
     purchaseList: {},
     quitList: {},
     repairList: {},
-    sProjectList: {},
+    staffAndProjectList: {},
     staffList: {},
   },
   action
@@ -28,7 +28,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -44,7 +44,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -60,7 +60,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -76,7 +76,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -92,7 +92,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -108,7 +108,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -124,7 +124,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -140,7 +140,7 @@ export const user = (
         purchaseList: { ...action.result },
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -156,7 +156,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: { ...action.result },
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
@@ -172,11 +172,11 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: { ...action.result },
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: state.staffList,
       };
     }
-    case 'CHECK_SPROJECT_LIST': {
+    case 'CHECK_STAFFANDPROJECT_LIST': {
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
@@ -188,7 +188,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: { ...action.result },
+        staffAndProjectList: { ...action.staffAndProjectList },
         staffList: state.staffList,
       };
     }
@@ -205,7 +205,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         repairList: state.repairList,
-        sProjectList: state.sProjectList,
+        staffAndProjectList: state.staffAndProjectList,
         staffList: { ...action.result },
       };
     }
