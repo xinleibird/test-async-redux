@@ -86,7 +86,7 @@ const checkPunchClockList = (result) => {
 };
 
 export const queryPunchClockList = () => {
-  return fetchGetWithToken('/user/punchClockList', (dispatch, json) => {
+  return fetchGetWithToken('/user/punchTheClockList', (dispatch, json) => {
     dispatch(checkPunchClockList(json));
   });
 };
