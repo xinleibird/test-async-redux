@@ -31,14 +31,19 @@ export const fetchPostWithToken = (urlParted, data, callback) => {
   };
 };
 
-export const fetchGetWithToken = (urlParted, callback) => {
+export const fetchGetWithToken = (urlParted = '', queryParam = {}, callback) => {
   return async (dispatch) => {
     const myHeaders = new Headers();
 
     const token = localStorage.getItem('token');
     myHeaders.append('Authorization', `Bearer ${token}`);
 
-    const response = await fetch(`${process.env.REACT_APP_API_URL}${urlParted}`, {
+    const url = new URL(`${process.env.REACT_APP_API_URL}${urlParted}`);
+    const param = new URLSearchParams(queryParam);
+
+    url.search = param;
+
+    const response = await fetch(`${url}`, {
       method: 'GET',
       headers: myHeaders,
     });

@@ -2,6 +2,7 @@ export const user = (
   state = {
     assessmentList: {},
     userList: {},
+    userInfo: {},
     contractList: {},
     departmentList: {},
     positionList: {},
@@ -20,6 +21,7 @@ export const user = (
       return {
         assessmentList: { ...action.result },
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -36,6 +38,24 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: { ...action.result },
+        userInfo: state.userInfo,
+        contractList: state.contractList,
+        departmentList: state.departmentList,
+        positionList: state.positionList,
+        projectList: state.projectList,
+        punchTheClockList: state.punchTheClockList,
+        purchaseList: state.purchaseList,
+        quitList: state.quitList,
+        scrapAndRepairList: state.scrapAndRepairList,
+        staffAndProjectList: state.staffAndProjectList,
+        staffList: state.staffList,
+      };
+    }
+    case 'CHECK_USER_INFO': {
+      return {
+        assessmentList: state.assessmentList,
+        userList: state.userList,
+        userInfo: { ...action.result },
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -52,6 +72,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: { ...action.result },
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -68,6 +89,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: { ...action.result },
         positionList: state.positionList,
@@ -84,6 +106,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: { ...action.result },
@@ -100,6 +123,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -116,6 +140,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -132,6 +157,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -148,6 +174,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -164,6 +191,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -180,6 +208,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,
@@ -188,7 +217,7 @@ export const user = (
         purchaseList: state.purchaseList,
         quitList: state.quitList,
         scrapAndRepairList: state.scrapAndRepairList,
-        staffAndProjectList: { ...action.staffAndProjectList },
+        staffAndProjectList: { ...action.result },
         staffList: state.staffList,
       };
     }
@@ -197,6 +226,7 @@ export const user = (
       return {
         assessmentList: state.assessmentList,
         userList: state.userList,
+        userInfo: state.userInfo,
         contractList: state.contractList,
         departmentList: state.departmentList,
         positionList: state.positionList,

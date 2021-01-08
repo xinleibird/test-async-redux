@@ -1,18 +1,29 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Descriptions } from 'antd';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { queryUserInfo } from '../../actions/user';
 
 const UserInfo = () => {
-  const login = useSelector(({ login }) => {
-    return login;
+  const { username } = useParams();
+  const dispatch = useDispatch();
+
+  const userInfo = useSelector(({ user }) => {
+    return user.userInfo;
   });
 
+  useEffect(() => {
+    if (username) {
+      dispatch(queryUserInfo(username));
+    }
+  }, [dispatch, username]);
+
   return (
-    <Descriptions title="用户信息">
-      <Descriptions.Item label="用户名">{login.username}</Descriptions.Item>
-      <Descriptions.Item label="角色">{login.role}</Descriptions.Item>
-      <Descriptions.Item label="登录地址">{login.remoteAddress}</Descriptions.Item>
-    </Descriptions>
+    <>
+      <p>
+        {userInfo?.data?.list?.[0]?.id}
+        {userInfo?.data?.list?.[0]?.username}
+      </p>
+    </>
   );
 };
 

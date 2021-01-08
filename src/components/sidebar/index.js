@@ -19,24 +19,28 @@ const SideBar = () => {
       if (item.path === '/login') {
         return null;
       }
-      if (item.routes) {
+
+      if (!item?.purge) {
+        if (item.routes) {
+          return (
+            <Menu.SubMenu key={item.path} title={item.title}>
+              {loopSideBar(item.routes)}
+            </Menu.SubMenu>
+          );
+        }
+
         return (
-          <Menu.SubMenu key={item.path} title={item.title}>
-            {loopSideBar(item.routes)}
-          </Menu.SubMenu>
+          <Menu.Item
+            key={item.path}
+            onClick={() => {
+              dispatch(push(item.path));
+            }}
+          >
+            {item.title}
+          </Menu.Item>
         );
       }
-
-      return (
-        <Menu.Item
-          key={item.path}
-          onClick={() => {
-            dispatch(push(item.path));
-          }}
-        >
-          {item.title}
-        </Menu.Item>
-      );
+      return null;
     });
   };
 

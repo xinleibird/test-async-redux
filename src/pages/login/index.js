@@ -23,7 +23,7 @@ const Login = () => {
 
   useEffect(() => {
     if (authenticated) {
-      dispatch(push('/user'));
+      dispatch(push('/loginInfo'));
     }
   }, [dispatch, authenticated]);
 

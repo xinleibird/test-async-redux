@@ -24,7 +24,7 @@ const NavBar = () => {
       <Menu>
         <Menu.Item
           onClick={() => {
-            dispatch(push('/user'));
+            dispatch(push('/loginInfo'));
           }}
         >
           用户信息

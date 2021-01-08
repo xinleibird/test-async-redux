@@ -8,7 +8,7 @@ const checkAssessmentList = (result) => {
 };
 
 export const queryAssessmentList = () => {
-  return fetchGetWithToken('/user/assessmentList', (dispatch, json) => {
+  return fetchGetWithToken('/user/assessmentList', {}, (dispatch, json) => {
     dispatch(checkAssessmentList(json));
   });
 };
@@ -21,8 +21,21 @@ const checkUserList = (result) => {
 };
 
 export const queryUserList = () => {
-  return fetchGetWithToken('/user/userList', (dispatch, json) => {
+  return fetchGetWithToken('/user/userList', {}, (dispatch, json) => {
     dispatch(checkUserList(json));
+  });
+};
+
+const checkUserInfo = (result) => {
+  return {
+    type: 'CHECK_USER_INFO',
+    result,
+  };
+};
+
+export const queryUserInfo = (username) => {
+  return fetchGetWithToken('/user/userList', { username }, (dispatch, json) => {
+    dispatch(checkUserInfo(json));
   });
 };
 
@@ -34,7 +47,7 @@ const checkContractList = (result) => {
 };
 
 export const queryContractList = () => {
-  return fetchGetWithToken('/user/contractList', (dispatch, json) => {
+  return fetchGetWithToken('/user/contractList', {}, (dispatch, json) => {
     dispatch(checkContractList(json));
   });
 };
@@ -47,7 +60,7 @@ const checkDepartmentList = (result) => {
 };
 
 export const queryDepartmentList = () => {
-  return fetchGetWithToken('/user/departmentList', (dispatch, json) => {
+  return fetchGetWithToken('/user/departmentList', {}, (dispatch, json) => {
     dispatch(checkDepartmentList(json));
   });
 };
@@ -60,7 +73,7 @@ const checkPositionList = (result) => {
 };
 
 export const queryPositionList = () => {
-  return fetchGetWithToken('/user/positionList', (dispatch, json) => {
+  return fetchGetWithToken('/user/positionList', {}, (dispatch, json) => {
     dispatch(checkPositionList(json));
   });
 };
@@ -73,7 +86,7 @@ const checkProjectList = (result) => {
 };
 
 export const queryProjectList = () => {
-  return fetchGetWithToken('/user/projectList', (dispatch, json) => {
+  return fetchGetWithToken('/user/projectList', {}, (dispatch, json) => {
     dispatch(checkProjectList(json));
   });
 };
@@ -86,7 +99,7 @@ const checkPunchTheClockList = (result) => {
 };
 
 export const queryPunchTheClockList = () => {
-  return fetchGetWithToken('/user/punchTheClockList', (dispatch, json) => {
+  return fetchGetWithToken('/user/punchTheClockList', {}, (dispatch, json) => {
     dispatch(checkPunchTheClockList(json));
   });
 };
@@ -99,7 +112,7 @@ const checkPurchaseList = (result) => {
 };
 
 export const queryPurchaseList = () => {
-  return fetchGetWithToken('/user/purchaseList', (dispatch, json) => {
+  return fetchGetWithToken('/user/purchaseList', {}, (dispatch, json) => {
     dispatch(checkPurchaseList(json));
   });
 };
@@ -112,7 +125,7 @@ const checkQuitList = (result) => {
 };
 
 export const queryQuitList = () => {
-  return fetchGetWithToken('/user/quitList', (dispatch, json) => {
+  return fetchGetWithToken('/user/quitList', {}, (dispatch, json) => {
     dispatch(checkQuitList(json));
   });
 };
@@ -124,7 +137,7 @@ const checkScrapAndRepairList = (result) => {
 };
 
 export const queryScrapAndRepairList = () => {
-  return fetchGetWithToken('/user/scrapAndRepairList', (dispatch, json) => {
+  return fetchGetWithToken('/user/scrapAndRepairList', {}, (dispatch, json) => {
     dispatch(checkScrapAndRepairList(json));
   });
 };
@@ -137,7 +150,7 @@ const checkStaffAndProjectList = (result) => {
 };
 
 export const queryStaffAndProjectList = () => {
-  return fetchGetWithToken('/user/staffAndProjectList', (dispatch, json) => {
+  return fetchGetWithToken('/user/staffAndProjectList', {}, (dispatch, json) => {
     dispatch(checkStaffAndProjectList(json));
   });
 };
@@ -149,7 +162,7 @@ const checkStaffList = (result) => {
 };
 
 export const queryStaffList = () => {
-  return fetchGetWithToken('/user/staffList', (dispatch, json) => {
+  return fetchGetWithToken('/user/staffList', {}, (dispatch, json) => {
     dispatch(checkStaffList(json));
   });
 };

@@ -83,6 +83,7 @@ const BasicLayout = ({ authenticated }) => {
                     <Route
                       key={item.path}
                       path={item.path}
+                      exact
                       component={AsyncLoadedWrapper(
                         lazy(() => {
                           return import(`../pages/${item.component}`);
@@ -92,10 +93,18 @@ const BasicLayout = ({ authenticated }) => {
                   );
                 })}
                 <Route
+                  path="/users/:username"
+                  component={AsyncLoadedWrapper(
+                    lazy(() => {
+                      return import(`../pages/UserInfo`);
+                    })
+                  )}
+                />
+                <Route
                   path="/"
                   component={AsyncLoadedWrapper(
                     lazy(() => {
-                      dispatch(push('/user'));
+                      dispatch(push('/loginInfo'));
                     })
                   )}
                 />

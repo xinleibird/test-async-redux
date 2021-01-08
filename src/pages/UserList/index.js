@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryUserList } from '../../actions';
+import { Link } from 'react-router-dom';
 
 import { Table } from 'antd';
+import { useParams } from 'react-router';
+import { queryUserInfo } from '../../actions/user';
 
 const columns = [
   {
     title: '用户名',
     dataIndex: 'username',
+    render: (text) => {
+      return <Link to={`/users/${text}`}>{text}</Link>;
+    },
   },
   {
     title: '员工',
@@ -44,7 +50,7 @@ const UserList = () => {
   const userList = useSelector(({ user }) => {
     return user.userList;
   });
-
+  const { username } = useParams();
   const { data } = userList;
 
   const dispatch = useDispatch();
@@ -52,6 +58,12 @@ const UserList = () => {
   useEffect(() => {
     dispatch(queryUserList());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (username) {
+      dispatch(queryUserInfo(username));
+    }
+  }, [dispatch, username]);
 
   return (
     <>
