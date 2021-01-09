@@ -34,6 +34,8 @@ const StaffListInfo = (result) => {
 };
 
 export const queryStaffListInfo = (staff_name) => {
+  console.log(111111);
+  console.log(222222);
   return fetchGetWithToken('/user/staffList', { staff_name }, (dispatch, json) => {
     dispatch(StaffListInfo(json));
   });

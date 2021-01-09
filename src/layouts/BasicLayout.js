@@ -120,7 +120,7 @@ const BasicLayout = ({ authenticated, role }) => {
                   )}
                 />
                 <Route
-                  path="/staffList/:username"
+                  path="/staffList/:staff_name"
                   component={AsyncLoadedWrapper(
                     lazy(() => {
                       return import(`../pages/UpdateStaff`);

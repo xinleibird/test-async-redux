@@ -21,7 +21,7 @@ export const admin = (
       return {
         updateStaff: state.updateStaff,
         updateQuit: state.updateQuit,
-        staffListInfo: { ...action.updateQuit },
+        staffListInfo: { ...action.result },
       };
     }
 

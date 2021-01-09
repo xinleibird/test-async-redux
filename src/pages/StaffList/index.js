@@ -94,8 +94,10 @@ const StaffList = () => {
     dispatch(queryStaffList());
   }, [dispatch]);
 
+  console.log(staff_name);
   useEffect(() => {
     if (staff_name) {
+      console.log(222222);
       dispatch(queryStaffListInfo(staff_name));
     }
   }, [dispatch, staff_name]);
