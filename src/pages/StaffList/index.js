@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryStaffList } from '../../actions';
-
+import { Link } from 'react-router-dom';
 import { Table } from 'antd';
+import { useParams } from 'react-router';
+import { queryStaffListInfo } from '../../actions/admin';
 
 const columns = [
   {
     title: '员工名字',
     dataIndex: 'staff_name',
+    render: (text) => {
+      return <Link to={`/staffList/${text}`}>{text}</Link>;
+    },
   },
   {
     title: '性别',
@@ -80,7 +85,7 @@ const StaffList = () => {
   const staffList = useSelector(({ user }) => {
     return user.staffList;
   });
-
+  const { staff_name } = useParams();
   const { data } = staffList;
 
   const dispatch = useDispatch();
@@ -88,6 +93,12 @@ const StaffList = () => {
   useEffect(() => {
     dispatch(queryStaffList());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (staff_name) {
+      dispatch(queryStaffListInfo(staff_name));
+    }
+  }, [dispatch, staff_name]);
 
   return (
     <>

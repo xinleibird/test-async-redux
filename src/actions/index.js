@@ -13,4 +13,4 @@ export {
   queryStaffAndProjectList,
   queryStaffList,
 } from './user';
-export { queryAddAssessment } from './admin';
+export { queryUpdateStaff, queryUpdateQuit, queryStaffListInfo } from './admin';

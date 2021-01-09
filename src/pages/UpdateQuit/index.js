@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { queryUserInfo } from '../../actions/user';
-import { Form, Input, Button, Space } from 'antd';
-import { queryUpdateStaff } from '../../actions';
+import { Form, Button, Input, Space } from 'antd';
+import { queryUpdateQuit } from '../../actions';
 
-const UserInfo = () => {
+const UpdateQuit = () => {
   const { username } = useParams();
   const dispatch = useDispatch();
 
-  const staffList = useSelector(({ user }) => {
-    return user.staffList;
+  const quitList = useSelector(({ user }) => {
+    return user.quitList;
   });
-
-  console.log(staffList);
-
   useEffect(() => {
     if (username) {
-      dispatch(queryUserInfo(username));
+      dispatch(queryUpdateQuit(username));
     }
   }, [dispatch, username]);
 
@@ -42,48 +38,48 @@ const UserInfo = () => {
       <Form
         {...layout}
         onFinish={(value) => {
-          dispatch(queryUpdateStaff(value));
+          dispatch(queryUpdateQuit(value));
         }}
       >
         <Form.Item label="员工Id">
           <Input
             name="id"
-            defaultValue={staffList?.data?.list?.[0]?.id + ''}
+            defaultValue={quitList?.data?.list?.[0]?.id + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="员工名字">
           <Input
             name="staff_name"
-            defaultValue={staffList?.data?.list?.[0]?.staff_name + ''}
+            defaultValue={quitList?.data?.list?.[0]?.staff_name + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="性别">
           <Input
             name="sex"
-            defaultValue={staffList?.data?.list?.[0]?.sex + ''}
+            defaultValue={quitList?.data?.list?.[0]?.sex + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="身份证号码">
           <Input
             name="id_number"
-            defaultValue={staffList?.data?.list?.[0]?.id_number + ''}
+            defaultValue={quitList?.data?.list?.[0]?.id_number + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="部门">
           <Input
             name="department_name"
-            defaultValue={staffList?.data?.list?.[0]?.department_name + ''}
+            defaultValue={quitList?.data?.list?.[0]?.department_name + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="职位">
           <Input
             name="job_title"
-            defaultValue={staffList?.data?.list?.[0]?.job_title + ''}
+            defaultValue={quitList?.data?.list?.[0]?.job_title + ''}
             disabled={isdisabled}
           />
         </Form.Item>
@@ -91,42 +87,49 @@ const UserInfo = () => {
         <Form.Item label="住址">
           <Input
             name="address"
-            defaultValue={staffList?.data?.list?.[0]?.address + ''}
+            defaultValue={quitList?.data?.list?.[0]?.address + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="银行卡号">
           <Input
             name="bank_card_number"
-            defaultValue={staffList?.data?.list?.[0]?.bank_card_number + ''}
+            defaultValue={quitList?.data?.list?.[0]?.bank_card_number + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="联系方式">
           <Input
             name="contact_information"
-            defaultValue={staffList?.data?.list?.[0]?.contact_information + ''}
+            defaultValue={quitList?.data?.list?.[0]?.contact_information + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="出生日期">
           <Input
             name="date_of_birth"
-            defaultValue={staffList?.data?.list?.[0]?.date_of_birth + ''}
+            defaultValue={quitList?.data?.list?.[0]?.date_of_birth + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="邮箱">
           <Input
             name="email"
-            defaultValue={staffList?.data?.list?.[0]?.email + ''}
+            defaultValue={quitList?.data?.list?.[0]?.email + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="入职时间">
           <Input
             name="entry_time"
-            defaultValue={staffList?.data?.list?.[0]?.entry_time + ''}
+            defaultValue={quitList?.data?.list?.[0]?.entry_time + ''}
+            disabled={isdisabled}
+          />
+        </Form.Item>
+        <Form.Item label="离职时间">
+          <Input
+            name="quit_time"
+            defaultValue={quitList?.data?.list?.[0]?.entry_time + ''}
             disabled={isdisabled}
           />
         </Form.Item>
@@ -149,5 +152,4 @@ const UserInfo = () => {
     </>
   );
 };
-
-export default UserInfo;
+export default UpdateQuit;

@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { queryUserInfo } from '../../actions/user';
+import { queryStaffListInfo } from '../../actions/admin';
 import { Form, Input, Button, Space } from 'antd';
-import { queryUpdateStaff } from '../../actions';
+import { queryUpdateStaff } from '../../actions/admin';
 
-const UserInfo = () => {
-  const { username } = useParams();
+const UpdateStaff = () => {
+  const { staff_name } = useParams();
   const dispatch = useDispatch();
 
-  const staffList = useSelector(({ user }) => {
-    return user.staffList;
+  const staffListInfo = useSelector(({ admin }) => {
+    return admin.staffListInfo;
   });
 
-  console.log(staffList);
-
+  console.log(staffListInfo);
   useEffect(() => {
-    if (username) {
-      dispatch(queryUserInfo(username));
+    if (staff_name) {
+      dispatch(queryStaffListInfo(staff_name));
     }
-  }, [dispatch, username]);
+  }, [dispatch, staff_name]);
 
   const [isdisabled, setIsdisabled] = useState(true);
   const layout = {
@@ -48,32 +47,32 @@ const UserInfo = () => {
         <Form.Item label="员工Id">
           <Input
             name="id"
-            defaultValue={staffList?.data?.list?.[0]?.id + ''}
+            defaultValue={staffListInfo?.data?.list?.[0]?.id + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="员工名字">
           <Input
             name="staff_name"
-            defaultValue={staffList?.data?.list?.[0]?.staff_name + ''}
+            defaultValue={staffListInfo?.data?.list?.[0]?.staff_name + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="性别">
           <Input
             name="sex"
-            defaultValue={staffList?.data?.list?.[0]?.sex + ''}
+            defaultValue={staffListInfo?.data?.list?.[0]?.sex + ''}
             disabled={isdisabled}
           />
         </Form.Item>
         <Form.Item label="身份证号码">
           <Input
             name="id_number"
-            defaultValue={staffList?.data?.list?.[0]?.id_number + ''}
+            defaultValue={staffListInfo?.data?.list?.[0]?.id_number + ''}
             disabled={isdisabled}
           />
         </Form.Item>
-        <Form.Item label="部门">
+        {/*  <Form.Item label="部门">
           <Input
             name="department_name"
             defaultValue={staffList?.data?.list?.[0]?.department_name + ''}
@@ -129,7 +128,7 @@ const UserInfo = () => {
             defaultValue={staffList?.data?.list?.[0]?.entry_time + ''}
             disabled={isdisabled}
           />
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item {...tailLayout}>
           <Space size="middle">
             <Button
@@ -150,4 +149,4 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+export default UpdateStaff;

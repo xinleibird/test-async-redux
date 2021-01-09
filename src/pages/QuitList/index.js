@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { queryQuitList } from '../../actions';
-
+import { Link } from 'react-router-dom';
 import { Table } from 'antd';
-
+import { useParams } from 'react-router';
+import { queryUserInfo } from '../../actions/user';
 const columns = [
   {
     title: '员工名字',
     dataIndex: 'staff_name',
+    render: (text) => {
+      return <Link to={`/users/${text}`}>{text}</Link>;
+    },
   },
   {
     title: '性别',
@@ -84,7 +88,7 @@ const QuitList = () => {
   const quitList = useSelector(({ user }) => {
     return user.quitList;
   });
-
+  const { username } = useParams();
   const { data } = quitList;
 
   const dispatch = useDispatch();
@@ -92,6 +96,11 @@ const QuitList = () => {
   useEffect(() => {
     dispatch(queryQuitList());
   }, [dispatch]);
+  useEffect(() => {
+    if (username) {
+      dispatch(queryUserInfo(username));
+    }
+  }, [dispatch, username]);
 
   return (
     <>

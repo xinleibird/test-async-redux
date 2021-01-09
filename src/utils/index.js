@@ -21,6 +21,9 @@ export const fetchPostWithToken = (urlParted, data, callback) => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
+    const token = localStorage.getItem('token');
+    myHeaders.append('Authorization', `Bearer ${token}`);
+
     const response = await fetch(`${process.env.REACT_APP_API_URL}${urlParted}`, {
       method: 'POST',
       headers: myHeaders,

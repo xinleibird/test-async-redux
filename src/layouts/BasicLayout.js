@@ -6,6 +6,9 @@ import { Route, Switch } from 'react-router';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
 import Login from '../pages/Login';
+import { Breadcrumb } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
+import Authentication from '../components/Authentication';
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -41,7 +44,7 @@ const AsyncLoadedWrapper = (Comp) => {
   };
 };
 
-const BasicLayout = ({ authenticated }) => {
+const BasicLayout = ({ authenticated, role }) => {
   const pathname = useSelector(({ router }) => {
     return router.location.pathname;
   });
@@ -74,23 +77,39 @@ const BasicLayout = ({ authenticated }) => {
           </Header>
           <Layout>
             <Sider>
-              <SideBar />
+              <SideBar role={role} />
             </Sider>
             <Content style={{ minHeight: 1000, padding: '3rem' }}>
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <HomeOutlined />
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>{pathname.substr(1)}</Breadcrumb.Item>
+              </Breadcrumb>
+              <br />
               <Switch>
                 {routes.map((item) => {
-                  return (
-                    <Route
-                      key={item.path}
-                      path={item.path}
-                      exact
-                      component={AsyncLoadedWrapper(
-                        lazy(() => {
-                          return import(`../pages/${item.component}`);
-                        })
-                      )}
-                    />
-                  );
+                  const h = item.allow
+                    ? item.allow.some((r) => {
+                        return r === role;
+                      })
+                    : true;
+                  if (h) {
+                    return (
+                      <Route
+                        key={item.path}
+                        path={item.path}
+                        exact
+                        component={AsyncLoadedWrapper(
+                          lazy(() => {
+                            return import(`../pages/${item.component}`);
+                          })
+                        )}
+                      />
+                    );
+                  }
+
+                  return null;
                 })}
                 <Route
                   path="/users/:username"
@@ -100,6 +119,15 @@ const BasicLayout = ({ authenticated }) => {
                     })
                   )}
                 />
+                <Route
+                  path="/staffList/:username"
+                  component={AsyncLoadedWrapper(
+                    lazy(() => {
+                      return import(`../pages/UpdateStaff`);
+                    })
+                  )}
+                />
+
                 <Route
                   path="/"
                   component={AsyncLoadedWrapper(

@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 
-const SideBar = () => {
+const SideBar = ({ role }) => {
   const sidebarState = useSelector(({ routes }) => {
     return routes;
   });
@@ -20,15 +20,21 @@ const SideBar = () => {
         return null;
       }
 
-      if (!item?.purge) {
-        if (item.routes) {
-          return (
-            <Menu.SubMenu key={item.path} title={item.title}>
-              {loopSideBar(item.routes)}
-            </Menu.SubMenu>
-          );
-        }
+      if (item.routes) {
+        return (
+          <Menu.SubMenu key={item.path} title={item.title}>
+            {loopSideBar(item.routes)}
+          </Menu.SubMenu>
+        );
+      }
 
+      const hasAccess = item.allow
+        ? item?.allow.some((r) => {
+            return r === role;
+          })
+        : true;
+
+      if (hasAccess) {
         return (
           <Menu.Item
             key={item.path}
